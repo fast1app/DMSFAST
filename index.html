@@ -165,21 +165,22 @@
             color: var(--primary);
         }
 
-        /* Iframe Container */
+        /* Iframe Container - DIUBAH PADDING MENJADI 0 */
         .iframe-container {
             flex-grow: 1;
-            padding: 24px;
+            padding: 0; /* Ubah dari 24px menjadi 0 */
             background-color: var(--background);
             position: relative;
         }
 
+        /* Iframe Card - DIHAPUS BORDER, RADIUS, DAN SHADOW */
         .iframe-card {
             width: 100%;
             height: 100%;
             background-color: var(--card-bg);
-            border-radius: 12px;
-            border: 1px solid var(--border);
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+            border-radius: 0; /* Ubah dari 12px menjadi 0 */
+            border: none; /* Hilangkan border */
+            box-shadow: none; /* Hilangkan shadow */
             overflow: hidden;
             position: relative;
         }
@@ -262,12 +263,8 @@
 </head>
 <body>
 
-    
-
     <div class="main-content">
         
-        
-
         <div class="iframe-container">
             <div class="iframe-card">
                 <div id="loading" class="loading-overlay">
@@ -286,7 +283,7 @@
     <script>
         const iframe = document.getElementById('main-frame');
         const loading = document.getElementById('loading');
-        const pageTitle = document.getElementById('page-title');
+        const pageTitle = document.getElementById('page-title'); // Pastikan elemen ini ada jika ingin memanggilnya
 
         function changeTab(element, title, url) {
             // Hapus class active dari semua menu
@@ -297,8 +294,8 @@
             // Tambah class active pada menu yang dipilih
             element.classList.add('active');
             
-            // Perbarui judul halaman di Header
-            pageTitle.innerText = title;
+            // Perbarui judul halaman di Header (Abaikan jika pageTitle tidak ditemukan)
+            if(pageTitle) pageTitle.innerText = title;
             
             // Tampilkan animasi loading
             loading.classList.add('active');
